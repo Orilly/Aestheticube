@@ -140,3 +140,4 @@ MonoBehaviour:
   movement: {fileID: 2023928683495557893}
   dead: {fileID: 1034555990084988128, guid: d75d51a36f64bf1419d84c05fe44d3a0, type: 3}
   shatterStrength: 10
+  velocityMultiplyer: 0.2
