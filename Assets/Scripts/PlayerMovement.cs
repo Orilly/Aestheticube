@@ -2,7 +2,7 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody rb;
+    private Rigidbody rb;
 
 
     public float forwardForce = 2000f;
@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     // Reference to the Rigidbody component called "rb"
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
 
     // "Fixed Update" because we are messing wi th physics.
