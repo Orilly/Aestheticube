@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 5623628604468192450}
   - component: {fileID: 8637912487964878627}
   - component: {fileID: 8568664691482179394}
+  - component: {fileID: 417080781990306550}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Obstacle - Occilating
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,6 +68,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -108,3 +110,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &417080781990306550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3843370371118327557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2e49c38f246474aad7e292615eda0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OccilationSpeed: 2
