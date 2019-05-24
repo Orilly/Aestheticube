@@ -32,7 +32,7 @@ public class GenerateObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.transform.position,position.position) < renderDistance)
+        if (player != null && Vector3.Distance(player.transform.position,position.position) < renderDistance)
         {
             position.position = new Vector3(position.position.x, position.position.y, position.position.z + Random.Range(obstacleDistance.x, obstacleDistance.y));
             if (Random.value < chanceOfRamp)
