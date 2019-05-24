@@ -8,16 +8,18 @@ public class Occilator : MonoBehaviour
 
     private float X1;
     private Vector3 temp;
+    private float randomOffset;
 
     void Start()
     {
         X1 = transform.position.x;
+        randomOffset = Random.value*2;
     }
 
     void Update()
     {
         temp = transform.position;
-        temp.x = X1 + Mathf.Sin(Time.time * OccilationSpeed);
+        temp.x = X1 + Mathf.Sin((Time.time + randomOffset) * OccilationSpeed);
         transform.position = temp;
     }
 }

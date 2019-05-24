@@ -2,11 +2,11 @@
 
 public class EndTrigger : MonoBehaviour
 {
-    public GameManager gameManager;
+    public GameObject completeLevelUI;
 
     private void OnTriggerEnter()
     {
-        gameManager.CompleteLevel();
+        completeLevelUI.SetActive(true);
         Debug.Log("Level Completed");
     }
 }
