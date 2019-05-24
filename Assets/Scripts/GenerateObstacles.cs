@@ -52,16 +52,20 @@ public class GenerateObstacles : MonoBehaviour
         for (int i = 0; i < repetions; i++)
         {
             Instantiate(obstacle, new Vector3(Random.Range(-trackWidth,trackWidth), position.position.y, position.position.z), obstacle.transform.rotation);
+            position.position = new Vector3(position.position.x, position.position.y, position.position.z + obstacle.transform.localScale.z + 0.1f);
         }
     }
 
     void MakeRampObstacle()
     {
+
+        Instantiate(ramp, new Vector3(Random.Range(-trackWidth, trackWidth), ramp.transform.position.y, position.position.z - Random.Range(rampDistance.x, rampDistance.y)), ramp.transform.rotation);
+
         int repetions = Random.Range(obstaclesPerRamp.x, obstaclesPerRamp.y);
         for (int i = 0; i < repetions; i++)
         {
             Instantiate(obstacle, new Vector3(Random.Range(-trackWidth, trackWidth), obstacle.transform.position.y, position.position.z), obstacle.transform.rotation);
+            position.position = new Vector3(position.position.x, position.position.y, position.position.z + obstacle.transform.localScale.z + 0.1f);
         }
-        Instantiate(ramp, new Vector3(Random.Range(-trackWidth, trackWidth), obstacle.transform.position.y, position.position.z - Random.Range(rampDistance.x,rampDistance.y)), ramp.transform.rotation);
     }
 }

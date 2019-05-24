@@ -7,10 +7,26 @@ public class PlayerCollision : MonoBehaviour
     public GameObject dead;
     public float shatterStrength;
     public float velocityMultiplyer = 0.5f;
+    public float TorqueBumpThreshold;
+    public float DownForceBumpMinThreshold;
+    public AudioClip[] BumpSound;
+
+    private Rigidbody rig;
+    private AudioSource audSrc;
+
+    private void Start()
+    {
+        rig = GetComponent<Rigidbody>();
+        audSrc = GetComponent<AudioSource>();
+    }
 
 
     private void OnCollisionEnter(Collision collisionInfo)
     {
+        if ((rig.velocity.y > DownForceBumpMinThreshold || rig.angularVelocity.magnitude > TorqueBumpThreshold)/* && !audSrc.isPlaying*/)
+        {
+            audSrc.PlayOneShot(BumpSound[Random.Range(0,BumpSound.Length)]);
+        }
         if (collisionInfo.collider.tag == "Obstacle")
         {
             movement.enabled = false;
@@ -26,5 +42,12 @@ public class PlayerCollision : MonoBehaviour
             }
             Destroy(gameObject);
         }
-    }
+    }/*
+    private void OnCollisionStay(Collision collision)
+    {
+        if((rig.velocity.y > DownForceBumpMinThreshold || rig.angularVelocity.magnitude > TorqueBumpThreshold) && !audSrc.isPlaying)
+        {
+            audSrc.PlayOneShot(BumpSound[Random.Range(0, BumpSound.Length)]);
+        }
+    }*/
 }

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float forwardForce = 2000f;
+    public float speedLimit = 50f;
     public float sidewaysForce = 500f;
 
     // Reference to the Rigidbody component called "rb"
@@ -14,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // "Fixed Update" because we are messing wi th physics.
+    // "Fixed Update" because we are messing with physics.
     void FixedUpdate()
     {
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime); 
+        //print(Mathf.Lerp(forwardForce, 0, (rb.velocity.magnitude / speedLimit)));
+        rb.AddForce(0, 0, Mathf.Lerp(forwardForce,0,(rb.velocity.magnitude/speedLimit)) * Time.deltaTime); 
 
         if ( Input.GetKey("d"))
         {

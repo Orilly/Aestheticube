@@ -188,16 +188,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2023928683495557913, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023928683495557893, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
-        type: 3}
-      propertyPath: forwardForce
-      value: 2000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b9142415ed7d4e3ea0afe51508e94e6, type: 3}
 --- !u!1 &170076733
@@ -303,6 +293,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 22681292}
   m_PrefabAsset: {fileID: 0}
+--- !u!75 &391374010
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391374002}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 5, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,8 +538,8 @@ MonoBehaviour:
   trackWidth: 7.5
   obstaclesPerCycle: {x: 1, y: 3}
   chanceOfRamp: 0.1
-  obstaclesPerRamp: {x: 4, y: 6}
-  rampDistance: {x: 1, y: 3}
+  obstaclesPerRamp: {x: 8, y: 12}
+  rampDistance: {x: 3, y: 5}
 --- !u!1 &820391404
 GameObject:
   m_ObjectHideFlags: 0
