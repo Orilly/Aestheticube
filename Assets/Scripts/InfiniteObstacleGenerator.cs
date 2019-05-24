@@ -8,9 +8,10 @@ public class InfiniteObstacleGenerator : MonoBehaviour
      float StartOffset = 20f;
      float GenerationDistance = 100f;
      float ObstacleInterval = 10f;
+     Vector2Int ObstaclesPerRamp = new Vector2Int(8, 12);
 
     private GameObject Player;
-    private float GroundScaleX;
+    private float GroundScaleX; //Track width
     private float GeneratedUpTo;
     private List<GameObject> GeneratedObjects = new List<GameObject>();
     private List<GameObject> ToDelete = new List<GameObject>();
@@ -29,13 +30,26 @@ public class InfiniteObstacleGenerator : MonoBehaviour
         // Add some Obstacles
         if (GeneratedUpTo < Player.transform.position.z + GenerationDistance)
         {
-            switch (Random.Range(0, 2))
+            switch (Random.Range(0, 6))
             {
                 case 0:
+                case 1:
+                case 2:
                     GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
                     break;
-                case 1:
+                case 3:
+                case 4:
                     GeneratedObjects.Add(Instantiate(OccilatingObstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
+                    break;
+                case 5:
+                    GeneratedObjects.Add(Instantiate(Ramp, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), -0.25f, GeneratedUpTo + 2f), Ramp.transform.rotation));
+                    GeneratedUpTo += Ramp.transform.localScale.y + 0.1f;
+                    int repeats = Random.Range(ObstaclesPerRamp.x, ObstaclesPerRamp.y);
+                    for (int i = 0; i < repeats; i++)
+                    {
+                        GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
+                        GeneratedUpTo += Obstacle.transform.localScale.z + 0.1f;
+                    }
                     break;
             }
             GeneratedUpTo += ObstacleInterval;
