@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 272794073}
-  offset: {x: 0, y: 1.5, z: -5}
+  offset: {x: 0, y: 1.25, z: -5}
   manager: {fileID: 629055973}
 --- !u!1 &540589537
 GameObject:
@@ -860,7 +860,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1951634274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 772fa9a4364764cbabf4c335babcc672, type: 3}
+  m_Script: {fileID: 11500000, guid: f52466607d8063e4aa225897bda3fcec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &1951634276
