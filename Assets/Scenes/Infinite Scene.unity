@@ -208,6 +208,12 @@ PrefabInstance:
       propertyPath: sidewaysForce
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2023928683495557892, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
+        type: 3}
+      propertyPath: dead
+      value: 
+      objectReference: {fileID: 4037876654128356222, guid: cbf020f9b5f97f249be494286d684310,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b9142415ed7d4e3ea0afe51508e94e6, type: 3}
 --- !u!1 &170076733
