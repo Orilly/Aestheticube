@@ -193,7 +193,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 2023928683495557893, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
       propertyPath: forwardForce
@@ -209,14 +208,6 @@ PrefabInstance:
       propertyPath: sidewaysForce
       value: 75
       objectReference: {fileID: 0}
-=======
-    - target: {fileID: 2023928683495557892, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
-        type: 3}
-      propertyPath: dead
-      value: 
-      objectReference: {fileID: 7245438238812296811, guid: ddfb51a7830f2f149a6390cf8a71c9ac,
-        type: 3}
->>>>>>> 5597eea5534f2c687f703c607d0be716eb8380df
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b9142415ed7d4e3ea0afe51508e94e6, type: 3}
 --- !u!1 &170076733
