@@ -201,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 2023928683495557893, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
       propertyPath: speedLimit
-      value: 35
+      value: 32.5
       objectReference: {fileID: 0}
     - target: {fileID: 2023928683495557893, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
@@ -211,7 +211,12 @@ PrefabInstance:
     - target: {fileID: 2023928683495557914, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
       propertyPath: m_AngularDrag
-      value: 1
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023928683495557914, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 2023928683495557892, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
@@ -318,12 +323,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 22681292}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &391374002 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2023928683495557915, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 22681292}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 272794073}
-  offset: {x: 0, y: 1, z: -5}
+  offset: {x: 0, y: 2, z: -5}
   manager: {fileID: 629055973}
 --- !u!1 &540589537
 GameObject:
@@ -499,7 +498,6 @@ GameObject:
   m_Component:
   - component: {fileID: 629055974}
   - component: {fileID: 629055973}
-  - component: {fileID: 629055975}
   - component: {fileID: 629055976}
   m_Layer: 0
   m_Name: GameManager
@@ -536,29 +534,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &629055975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629055972}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c4b36f4aeaf8340bea06490b7573bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 391374002}
-  obstacle: {fileID: 3843370371118327557, guid: 2e32b994f69ef4a158f98e1726acd72b,
-    type: 3}
-  ramp: {fileID: 6104568684757584661, guid: 2463dcb9016aa0c44b78561fbefd619f, type: 3}
-  obstacleDistance: {x: 20, y: 30}
-  renderDistance: 200
-  trackWidth: 7.5
-  obstaclesPerCycle: {x: 1, y: 3}
-  chanceOfRamp: 0.1
-  obstaclesPerRamp: {x: 8, y: 12}
-  rampDistance: {x: 3, y: 5}
 --- !u!114 &629055976
 MonoBehaviour:
   m_ObjectHideFlags: 0
