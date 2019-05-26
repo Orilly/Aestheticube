@@ -8,6 +8,8 @@ public class InfiniteObstacleGenerator : MonoBehaviour
      float StartOffset = 20f;
      float GenerationDistance = 100f;
      float ObstacleInterval = 10f;
+     float RampStartDistance = 500f;
+     float OccilatingObstacleStartDistance = 100f;
      Vector2Int ObstaclesPerRamp = new Vector2Int(8, 12);
 
     private GameObject Player;
@@ -26,9 +28,9 @@ public class InfiniteObstacleGenerator : MonoBehaviour
     void Update()
     {
         if (Player == null) return;
-
+        
         // Add some Obstacles
-        if (GeneratedUpTo < Player.transform.position.z + GenerationDistance)
+        /*if (GeneratedUpTo < Player.transform.position.z + GenerationDistance)
         {
             switch (Random.Range(0, 6))
             {
@@ -53,6 +55,15 @@ public class InfiniteObstacleGenerator : MonoBehaviour
                     break;
             }
             GeneratedUpTo += ObstacleInterval;
+        }*/
+
+        if (GeneratedUpTo < Player.transform.position.z + GenerationDistance)
+        {
+            GeneratedUpTo += ObstacleInterval;
+
+            float r = Random.Range();
+            if (GeneratedUpTo < RampStartDistance)
+            GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
         }
 
         ClearPastObjects();
