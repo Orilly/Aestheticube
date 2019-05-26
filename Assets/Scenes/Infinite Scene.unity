@@ -206,7 +206,7 @@ PrefabInstance:
     - target: {fileID: 2023928683495557893, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
       propertyPath: sidewaysForce
-      value: 75
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b9142415ed7d4e3ea0afe51508e94e6, type: 3}
