@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: sidewaysForce
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2023928683495557914, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2023928683495557892, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
       propertyPath: dead
