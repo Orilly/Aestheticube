@@ -551,6 +551,14 @@ MonoBehaviour:
   OccilatingObstacle: {fileID: 3843370371118327557, guid: 46e1ef98d542fbf48af730dbc98df1da,
     type: 3}
   Ramp: {fileID: 6104568684757584661, guid: 2463dcb9016aa0c44b78561fbefd619f, type: 3}
+  StartOffset: 50
+  GenerationDistance: 100
+  ObstacleInterval: 10
+  RampStartDistance: 250
+  OccilatingObstacleStartDistance: 500
+  RampInterval: 75
+  SpaceBeforeRamp: 10
+  ObstaclesPerRamp: {x: 6, y: 8}
 --- !u!1 &820391404
 GameObject:
   m_ObjectHideFlags: 0

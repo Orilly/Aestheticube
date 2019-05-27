@@ -7,13 +7,14 @@ public class InfiniteObstacleGenerator : MonoBehaviour
     public GameObject Obstacle, OccilatingObstacle, Ramp;
 
     // Numbers
-    public float StartOffset = 20f;
+    public float StartOffset = 50f;
     public float GenerationDistance = 100f;
     public float ObstacleInterval = 10f;
     public float RampStartDistance = 250f;
     public float OccilatingObstacleStartDistance = 500f;
     public float RampInterval = 75f;
-    public Vector2Int ObstaclesPerRamp = new Vector2Int(8, 12);
+    public float SpaceBeforeRamp = 10f;
+    public Vector2Int ObstaclesPerRamp = new Vector2Int(6, 8);
 
     private GameObject Player;
     private float GroundScaleX; //Track width
@@ -40,6 +41,7 @@ public class InfiniteObstacleGenerator : MonoBehaviour
             if (GeneratedUpTo > RampStartDistance && Random.value < 0.33f && LastRamp < GeneratedUpTo - RampInterval)
             {
                 LastRamp = GeneratedUpTo;
+                GeneratedUpTo += SpaceBeforeRamp;
 
                 GeneratedObjects.Add(Instantiate(Ramp, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), -0.25f, GeneratedUpTo + 2f), Ramp.transform.rotation));
                 GeneratedUpTo += Ramp.transform.localScale.y + 0.1f;
