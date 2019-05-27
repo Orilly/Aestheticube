@@ -5,23 +5,27 @@ using UnityEngine;
 public class InfiniteObstacleGenerator : MonoBehaviour
 {
     public GameObject Obstacle, OccilatingObstacle, Ramp;
-     float StartOffset = 20f;
-     float GenerationDistance = 100f;
-     float ObstacleInterval = 10f;
-     float RampStartDistance = 500f;
-     float OccilatingObstacleStartDistance = 100f;
-     Vector2Int ObstaclesPerRamp = new Vector2Int(8, 12);
+
+    // Numbers
+    private float StartOffset = 20f;
+    private float GenerationDistance = 100f;
+    private float ObstacleInterval = 10f;
+    private float RampStartDistance = 250f;
+    private float OccilatingObstacleStartDistance = 500f;
+    private float RampInterval = 75f;
+    private Vector2Int ObstaclesPerRamp = new Vector2Int(8, 12);
 
     private GameObject Player;
     private float GroundScaleX; //Track width
     private float GeneratedUpTo;
+    private float LastRamp = float.MinValue;
     private List<GameObject> GeneratedObjects = new List<GameObject>();
     private List<GameObject> ToDelete = new List<GameObject>();
 
     void Start()
     {
         Player = GameObject.Find("Player");
-        GeneratedUpTo = Player.transform.position.z + StartOffset;
+        GeneratedUpTo = Player.transform.position.z + StartOffset - ObstacleInterval;
         GroundScaleX = GameObject.Find("Ground").transform.localScale.x;
     }
 
@@ -29,41 +33,31 @@ public class InfiniteObstacleGenerator : MonoBehaviour
     {
         if (Player == null) return;
         
-        // Add some Obstacles
-        /*if (GeneratedUpTo < Player.transform.position.z + GenerationDistance)
-        {
-            switch (Random.Range(0, 6))
-            {
-                case 0:
-                case 1:
-                case 2:
-                    GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
-                    break;
-                case 3:
-                case 4:
-                    GeneratedObjects.Add(Instantiate(OccilatingObstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
-                    break;
-                case 5:
-                    GeneratedObjects.Add(Instantiate(Ramp, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), -0.25f, GeneratedUpTo + 2f), Ramp.transform.rotation));
-                    GeneratedUpTo += Ramp.transform.localScale.y + 0.1f;
-                    int repeats = Random.Range(ObstaclesPerRamp.x, ObstaclesPerRamp.y);
-                    for (int i = 0; i < repeats; i++)
-                    {
-                        GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
-                        GeneratedUpTo += Obstacle.transform.localScale.z + 0.1f;
-                    }
-                    break;
-            }
-            GeneratedUpTo += ObstacleInterval;
-        }*/
-
         if (GeneratedUpTo < Player.transform.position.z + GenerationDistance)
         {
             GeneratedUpTo += ObstacleInterval;
 
-            float r = Random.Range();
-            if (GeneratedUpTo < RampStartDistance)
-            GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
+            if (GeneratedUpTo > RampStartDistance && Random.value < 0.33f && LastRamp < GeneratedUpTo - RampInterval)
+            {
+                LastRamp = GeneratedUpTo;
+
+                GeneratedObjects.Add(Instantiate(Ramp, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), -0.25f, GeneratedUpTo + 2f), Ramp.transform.rotation));
+                GeneratedUpTo += Ramp.transform.localScale.y + 0.1f;
+                int repeats = Random.Range(ObstaclesPerRamp.x, ObstaclesPerRamp.y);
+                for (int i = 0; i < repeats; i++)
+                {
+                    GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
+                    GeneratedUpTo += Obstacle.transform.localScale.z + 0.1f;
+                }
+            }
+            else if (GeneratedUpTo > OccilatingObstacleStartDistance && Random.value < 0.55f)
+            {
+                GeneratedObjects.Add(Instantiate(OccilatingObstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
+            }
+            else
+            {
+                GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
+            }
         }
 
         ClearPastObjects();

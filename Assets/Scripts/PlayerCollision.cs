@@ -42,12 +42,5 @@ public class PlayerCollision : MonoBehaviour
             }
             Destroy(gameObject);
         }
-    }/*
-    private void OnCollisionStay(Collision collision)
-    {
-        if((rig.velocity.y > DownForceBumpMinThreshold || rig.angularVelocity.magnitude > TorqueBumpThreshold) && !audSrc.isPlaying)
-        {
-            audSrc.PlayOneShot(BumpSound[Random.Range(0, BumpSound.Length)]);
-        }
-    }*/
+    }
 }
