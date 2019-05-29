@@ -211,12 +211,22 @@ PrefabInstance:
     - target: {fileID: 2023928683495557914, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
       propertyPath: m_AngularDrag
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 2023928683495557914, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
       propertyPath: m_Constraints
       value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023928683495557914, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023928683495557914, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2023928683495557892, guid: 8b9142415ed7d4e3ea0afe51508e94e6,
         type: 3}
@@ -551,6 +561,7 @@ MonoBehaviour:
   OccilatingObstacle: {fileID: 3843370371118327557, guid: 46e1ef98d542fbf48af730dbc98df1da,
     type: 3}
   Ramp: {fileID: 6104568684757584661, guid: 2463dcb9016aa0c44b78561fbefd619f, type: 3}
+  Coin: {fileID: 7777519352832306413, guid: 5a3c00a47e04d1142a2c576559bd03ce, type: 3}
   StartOffset: 50
   GenerationDistance: 100
   ObstacleInterval: 10
