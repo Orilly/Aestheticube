@@ -14,7 +14,7 @@ public class InfiniteObstacleGenerator : MonoBehaviour
     public float OccilatingObstacleStartDistance = 500f;
     public float RampInterval = 75f;
     public float SpaceBeforeRamp = 10f;
-    public Vector2Int ObstaclesPerRamp = new Vector2Int(6, 8);
+    public Vector2Int ObstaclesPerRamp = new Vector2Int(8, 12);
 
     private GameObject Player;
     private float GroundScaleX; //Track width
