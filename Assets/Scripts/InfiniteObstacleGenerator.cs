@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InfiniteObstacleGenerator : MonoBehaviour
 {
-    public GameObject Obstacle, OccilatingObstacle, Ramp;
+    public GameObject Obstacle, OccilatingObstacle, BouncingObstacle, Ramp;
 
     // Numbers
     public float StartOffset = 50f;
@@ -12,9 +12,12 @@ public class InfiniteObstacleGenerator : MonoBehaviour
     public float ObstacleInterval = 10f;
     public float RampStartDistance = 250f;
     public float OccilatingObstacleStartDistance = 500f;
+    public float BouncingObstacleStartDistance = 1000f;
     public float RampInterval = 75f;
     public float SpaceBeforeRamp = 10f;
-    public Vector2Int ObstaclesPerRamp = new Vector2Int(6, 8);
+    public Vector2Int ObstaclesPerRamp = new Vector2Int(20,30);
+    public bool bouncingObstacleUnlocked { get; set; }
+    public Vector2 bounceHeight = new Vector2(4,8);
 
     private GameObject Player;
     private float GroundScaleX; //Track width
@@ -55,6 +58,15 @@ public class InfiniteObstacleGenerator : MonoBehaviour
             else if (GeneratedUpTo > OccilatingObstacleStartDistance && Random.value < 0.55f)
             {
                 GeneratedObjects.Add(Instantiate(OccilatingObstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
+            }
+            else if (bouncingObstacleUnlocked && GeneratedUpTo > BouncingObstacleStartDistance && Random.value < 0.1f)
+            {
+                //print((int)((GeneratedUpTo - BouncingObstacleStartDistance + 500) / 500));
+                for (int i = 0; i < (int)((GeneratedUpTo - BouncingObstacleStartDistance + 500) / 500); i++)
+                {
+                    GeneratedObjects.Add(Instantiate(BouncingObstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 2, GroundScaleX / 2 - 2), Random.Range(bounceHeight.x, bounceHeight.y), GeneratedUpTo + 2f), Obstacle.transform.rotation));
+                    GeneratedUpTo += Obstacle.transform.localScale.z + 0.1f;
+                }
             }
             else
             {

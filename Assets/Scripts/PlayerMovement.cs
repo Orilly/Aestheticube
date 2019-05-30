@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public float forwardForce = 2000f;
+    public bool limmitedSpeed { get; set; } = true;
     public float speedLimit = 50f;
     public float sidewaysForce = 500f;
 
@@ -19,7 +20,14 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //print(Mathf.Lerp(forwardForce, 0, (rb.velocity.magnitude / speedLimit)));
-        rb.AddForce(0, 0, Mathf.Lerp(forwardForce,0,(rb.velocity.magnitude/speedLimit)) * Time.deltaTime); 
+        if (limmitedSpeed)
+        {
+            rb.AddForce(0, 0, Mathf.Lerp(forwardForce, 0, (rb.velocity.magnitude / speedLimit)) * Time.deltaTime);
+        }
+        else
+        {
+            rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        }
 
         if ( Input.GetKey("d"))
         {
