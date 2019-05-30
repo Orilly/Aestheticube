@@ -5,6 +5,7 @@ using UnityEngine;
 public class InfiniteObstacleGenerator : MonoBehaviour
 {
     public GameObject Obstacle, OccilatingObstacle, BouncingObstacle, Ramp;
+    public GameObject Coin;
 
     // Numbers
     public float StartOffset = 50f;
@@ -15,7 +16,7 @@ public class InfiniteObstacleGenerator : MonoBehaviour
     public float BouncingObstacleStartDistance = 1000f;
     public float RampInterval = 75f;
     public float SpaceBeforeRamp = 10f;
-    public Vector2Int ObstaclesPerRamp = new Vector2Int(20,30);
+    public Vector2Int ObstaclesPerRamp = new Vector2Int(8, 12);
     public bool bouncingObstacleUnlocked { get; set; }
     public Vector2 bounceHeight = new Vector2(4,8);
 
@@ -70,7 +71,9 @@ public class InfiniteObstacleGenerator : MonoBehaviour
             }
             else
             {
-                GeneratedObjects.Add(Instantiate(Obstacle, new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f), Obstacle.transform.rotation));
+                Vector3 Temp = new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f);
+                GeneratedObjects.Add(Instantiate(Obstacle, Temp, Obstacle.transform.rotation));
+                Instantiate(Coin, new Vector3(Temp.x, Temp.y + 1, Temp.z), Coin.transform.rotation);
             }
         }
 
