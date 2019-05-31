@@ -4,6 +4,7 @@ public class PlayerCollision : MonoBehaviour
 {
 
     public PlayerMovement movement;
+    public bool invincible { get; set; } = false;
     public GameObject dead;
     public float shatterStrength;
     public float velocityMultiplyer = 0.5f;
@@ -27,7 +28,7 @@ public class PlayerCollision : MonoBehaviour
         {
             audSrc.PlayOneShot(BumpSound[Random.Range(0,BumpSound.Length)]);
         }
-        if (collisionInfo.collider.tag == "Obstacle")
+        if (collisionInfo.collider.tag == "Obstacle" && !invincible)
         {
             movement.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
