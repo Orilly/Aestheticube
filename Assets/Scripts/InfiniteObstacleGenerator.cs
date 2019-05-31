@@ -42,7 +42,13 @@ public class InfiniteObstacleGenerator : MonoBehaviour
         {
             GeneratedUpTo += ObstacleInterval;
 
-            if (GeneratedUpTo > RampStartDistance && Random.value < 0.33f && LastRamp < GeneratedUpTo - RampInterval)
+            if (Random.value < 0.05f)
+            {
+                print("coin");
+                Vector3 Temp = new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f);
+                Instantiate(Coin, new Vector3(Temp.x, Temp.y, Temp.z), Coin.transform.rotation);
+            }
+            else if (GeneratedUpTo > RampStartDistance && Random.value < 0.33f && LastRamp < GeneratedUpTo - RampInterval)
             {
                 LastRamp = GeneratedUpTo;
                 GeneratedUpTo += SpaceBeforeRamp;
@@ -73,7 +79,6 @@ public class InfiniteObstacleGenerator : MonoBehaviour
             {
                 Vector3 Temp = new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f);
                 GeneratedObjects.Add(Instantiate(Obstacle, Temp, Obstacle.transform.rotation));
-                Instantiate(Coin, new Vector3(Temp.x, Temp.y + 1, Temp.z), Coin.transform.rotation);
             }
         }
 
