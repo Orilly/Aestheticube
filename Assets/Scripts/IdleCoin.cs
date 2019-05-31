@@ -29,7 +29,7 @@ public class IdleCoin : MonoBehaviour
         transform.Rotate(Vector3.forward * Time.deltaTime * 50);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.tag == "Player")
         {
