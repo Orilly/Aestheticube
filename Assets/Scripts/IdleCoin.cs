@@ -28,4 +28,13 @@ public class IdleCoin : MonoBehaviour
         transform.position = Temp;
         transform.Rotate(Vector3.forward * Time.deltaTime * 50);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            transform.parent = collision.transform;
+            GetComponent<IdleCoin>().enabled = false;
+        }
+    }
 }

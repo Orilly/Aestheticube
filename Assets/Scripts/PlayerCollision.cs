@@ -41,6 +41,13 @@ public class PlayerCollision : MonoBehaviour
             {
                 deadCube.transform.GetChild(child).GetComponent<Rigidbody>().velocity = new Vector3(cubeVelocity.x * velocityMultiplyer + Random.Range(-shatterStrength,shatterStrength), cubeVelocity.y * velocityMultiplyer + Random.Range(-shatterStrength, shatterStrength), cubeVelocity.z * velocityMultiplyer + Random.Range(-shatterStrength, shatterStrength));
             }
+            for (int child = 0; child < gameObject.transform.childCount; child++)
+            {
+                gameObject.transform.GetChild(child).gameObject.AddComponent<Rigidbody>();
+                gameObject.transform.GetChild(child).GetComponent<Rigidbody>().mass = 0.01f;
+                gameObject.transform.GetChild(child).GetComponent<Rigidbody>().velocity = new Vector3(cubeVelocity.x * velocityMultiplyer + Random.Range(-shatterStrength, shatterStrength), cubeVelocity.y * velocityMultiplyer + Random.Range(-shatterStrength, shatterStrength), cubeVelocity.z * velocityMultiplyer + Random.Range(-shatterStrength, shatterStrength));
+                gameObject.transform.GetChild(child).parent = deadCube.transform;
+            }
             Destroy(gameObject);
         }
     }
