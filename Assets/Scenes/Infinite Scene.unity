@@ -3648,24 +3648,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2876321378297204283, guid: a00211dbcafd08a408aeb9734736d890,
-        type: 3}
-      propertyPath: m_Range
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2876321378297204283, guid: a00211dbcafd08a408aeb9734736d890,
-        type: 3}
-      propertyPath: m_DrawHalo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2876321378297204283, guid: a00211dbcafd08a408aeb9734736d890,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2243073686014989113, guid: a00211dbcafd08a408aeb9734736d890,
         type: 3}
-      propertyPath: m_Convex
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
