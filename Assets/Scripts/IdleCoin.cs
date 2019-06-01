@@ -46,6 +46,7 @@ public class IdleCoin : MonoBehaviour
             print(tokens.ToString());
             FileEdit.WriteString("Assets/SaveFile", tokens.ToString());
             transform.parent = collision.transform;
+            transform.position = collision.transform.position;
             GetComponent<IdleCoin>().enabled = false;
         }
     }
