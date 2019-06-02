@@ -33,18 +33,10 @@ public class IdleCoin : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            FileEditor FileEdit = new FileEditor();
-            int tokens = 0;
-            try
-            {
-                tokens = int.Parse(FileEdit.ReadString("Assets/SaveFile")) + 1;
-            }
-            catch (System.Exception)
-            {
-                tokens = 0;
-            }
-            print(tokens.ToString());
-            FileEdit.WriteString("Assets/SaveFile", tokens.ToString());
+            CrystalCount[] components = GameObject.FindObjectsOfType<CrystalCount>();
+            foreach (CrystalCount comp in components)
+                comp.AddCrystal = true;
+
             Destroy(gameObject);
         }
     }
