@@ -35,4 +35,15 @@ public class CrystalCount : MonoBehaviour
             counter.text = tokens.ToString();
         }
     }
+    /*
+    string Encrypt(string textString, int offset, int stride)
+    {
+        char text[] = new char[];
+            text = textString.ToCharArray();
+        for (int i = 0; i < text.length; i++)
+        {
+
+        }
+        return Encryptedtext;
+    }*/
 }
