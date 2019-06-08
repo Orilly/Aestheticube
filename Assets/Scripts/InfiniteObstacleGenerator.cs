@@ -44,7 +44,7 @@ public class InfiniteObstacleGenerator : MonoBehaviour
 
             if (Random.value < 0.05f)
             {
-                print("coin");
+                //print("coin");
                 Vector3 Temp = new Vector3(Random.Range(-GroundScaleX / 2 + 1, GroundScaleX / 2 - 1), 0, GeneratedUpTo + 2f);
                 Instantiate(Coin, new Vector3(Temp.x, Temp.y, Temp.z), Coin.transform.rotation);
             }
