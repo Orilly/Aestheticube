@@ -4,7 +4,12 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public Transform player;
-    public Text scoreText;
+    private Text scoreText;
+
+    void Start()
+    {
+        scoreText = GetComponent<Text>();
+    }
 
     // Update is called once per frame
     void Update()
